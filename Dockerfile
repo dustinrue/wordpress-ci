@@ -51,12 +51,15 @@ RUN \
 
 COPY scripts/composer-installer.sh /composer-installer.sh
 COPY scripts/composer /usr/local/bin/composer
+COPY scripts/entrypoint.sh /entrypoint.sh
+
 RUN \
   sh /composer-installer.sh && \
   mv /composer1 /usr/local/bin/composer1 && \
   mv /composer2 /usr/local/bin/composer2 && \
   chmod +x /usr/local/bin/composer1 && \
   chmod +x /usr/local/bin/composer2 && \
-  chmod +x /usr/local/bin/composer
+  chmod +x /usr/local/bin/composer && \
+  chmod +x /entrypoint.sh
 
-CMD ["/bin/bash"]
+ENTRYPOINT ["/entrypoint.sh"]
