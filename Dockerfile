@@ -62,6 +62,7 @@ RUN \
   chmod +x /usr/local/bin/composer2 && \
   chmod +x /usr/local/bin/composer && \
   chmod +x /usr/local/bin/nvm && \
-  chmod +x /entrypoint.sh
+  chmod +x /entrypoint.sh && \
+  sed -i '3 i PS1="docker-fix"' /etc/profile
 
 ENTRYPOINT ["/entrypoint.sh"]
