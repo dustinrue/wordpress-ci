@@ -1,7 +1,4 @@
 #!/bin/bash
 
-set -x
+bash -c ". ~/.nvm/nvm.sh; $@"
 
-PS1=hack source /root/.bashrc
-
-exec "$@"

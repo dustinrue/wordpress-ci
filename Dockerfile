@@ -45,7 +45,7 @@ RUN \
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash
 
 RUN \
-  export PS1='hack-so-bashrc-is-evaluated' && \
+  sed -i "/&& return/d" ~/.bashrc && \
   source /root/.bashrc && \
   nvm install --lts
 
