@@ -5,8 +5,6 @@ ARG PHP_VERSION=7.3
 ENV DEBIAN_FRONTEND=noninteractive
 ENV LANG en_US.utf8
 ENV COMPOSER_ALLOW_SUPERUSER 1
-ENV COMPOSER_HOME /tmp
-ENV COMPOSER_VERSION 1.8.0
 
 SHELL ["/bin/bash", "-c"]
 
@@ -52,9 +50,13 @@ RUN \
   nvm install --lts
 
 COPY scripts/composer-installer.sh /composer-installer.sh
+COPY scripts/composer /usr/local/bin/composer
 RUN \
   sh /composer-installer.sh && \
-  mv /composer.phar /usr/local/bin/composer && \
+  mv /composer1 /usr/local/bin/composer1 && \
+  mv /composer2 /usr/local/bin/composer2 && \
+  chmod +x /usr/local/bin/composer1 && \
+  chmod +x /usr/local/bin/composer2 && \
   chmod +x /usr/local/bin/composer
 
 CMD ["/bin/bash"]
