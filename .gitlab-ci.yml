@@ -89,5 +89,6 @@ stages:
 PHP 7.4-ubuntu:
   variables:
     PHP_VERSION: '7.4'
-    PLATFORMS: 'linux/amd64,linux/arm64'
+    PLATFORMS: 'linux/amd64'
+    #PLATFORMS: 'linux/amd64,linux/arm64'
   extends: .common-ubuntu
