@@ -51,6 +51,7 @@ RUN \
 
 COPY scripts/composer-installer.sh /composer-installer.sh
 COPY scripts/composer /usr/local/bin/composer
+COPY scripts/nvm /usr/local/bin/nvm
 COPY scripts/entrypoint.sh /entrypoint.sh
 
 RUN \
@@ -60,6 +61,7 @@ RUN \
   chmod +x /usr/local/bin/composer1 && \
   chmod +x /usr/local/bin/composer2 && \
   chmod +x /usr/local/bin/composer && \
+  chmod +x /usr/local/bin/nvm && \
   chmod +x /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
