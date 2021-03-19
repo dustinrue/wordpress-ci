@@ -1,4 +1,6 @@
 #!/bin/bash
 
-bash -c ". ~/.nvm/nvm.sh; $@"
+. ~/.nvm/nvm.sh
+
+exec "$@"
 
