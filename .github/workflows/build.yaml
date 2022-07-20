@@ -22,7 +22,7 @@ jobs:
           chmod 0700 ${HOME}/.ssh
           ls -lh ${HOME}/.ssh
           ssh-keyscan gitlab.dustinrue.com > ${HOME}/.ssh/known_hosts
-          echo ${{ secrets.GITLAB_SSH_PRIVATE_KEY }} > ${HOME}/.ssh/id_rsa
+          echo "${{ secrets.GITLAB_SSH_PRIVATE_KEY }}" > ${HOME}/.ssh/id_rsa
           chmod 0600 ${HOME}/.ssh/id_rsa
           chmod 0600 ${HOME}/.ssh/known_hosts
           ls -lh ${HOME}/.ssh
