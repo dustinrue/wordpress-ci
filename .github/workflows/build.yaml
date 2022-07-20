@@ -33,8 +33,6 @@ jobs:
 
           cd ${GITLAB_REPO_LOCATION}
           git checkout ${GITHUB_REF_NAME} || git checkout -b ${GITHUB_REF_NAME}
-          ls -lh ${GITHUB_WORKSPACE}
-          ls -lh
           git push origin ${GITHUB_REF_NAME}
 
         shell: bash
