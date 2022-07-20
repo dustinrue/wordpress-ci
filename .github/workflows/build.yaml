@@ -26,8 +26,16 @@ jobs:
           chmod 0600 ${HOME}/.ssh/id_rsa
           chmod 0600 ${HOME}/.ssh/known_hosts
           ls -lh ${HOME}/.ssh
-          cat ${HOME}/.ssh/known_hosts
+          
+          GITLAB_REPO_LOCATION="${GITHUB_WORKSPACE:?}/../../gitlab-repo"
+          mkdir -p ${GITLAB_REPO_LOCATION}
+          git clone ${{ secrets.GITLAB_SSH_URL }} ${GITLAB_REPO_LOCATION}
 
+          cd ${GITLAB_REPO_LOCATION}
+          git checkout ${{ github.ref }} || git checkout -b ${{ github.ref }}
+          ls -lh ${GITHUB_WORKSPACE}
+          ls -lh
+          git push origin ${{ github.ref }}
 
         shell: bash
 
